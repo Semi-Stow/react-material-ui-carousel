@@ -49,14 +49,12 @@ export const CarouselItem = ({ animation, next, prev, swipe, state, index, maxIn
     }
 
     const divRef = useRef<HTMLDivElement>(null);
-    console.log('carousel item rendering')
 
     // Set up ResizeObserver to monitor height changes
     useEffect(() => {
         if (!divRef.current) return;
 
         const observer = new ResizeObserver((entries) => {
-            console.log('entries', entries);
             const contentHeight = entries[0].contentRect.height;
             if (contentHeight > 0) {
                 setHeight(contentHeight);
