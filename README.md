@@ -1,4 +1,4 @@
-# React Material UI Carousel [![npm version](https://img.shields.io/npm/v/react-material-ui-carousel.svg?style=flat)](https://www.npmjs.com/package/react-material-ui-carousel)
+# React Material UI Carousel [![npm version](https://img.shields.io/npm/v/react-material-ui-carousel.svg?style=flat)](https://www.npmjs.com/package/@outpost-us/react-material-ui-carousel)
 
 ## Description
 
@@ -6,6 +6,8 @@ A Generic, extendible Carousel UI component for React using [Material UI](https:
 It switches between given children using a smooth animation.  
 Provides next and previous buttons.
 Also provides interactible bullet indicators.
+
+NOTE: This is a fork from https://www.npmjs.com/package/react-material-ui-carousel. That repo hadn't been updated in a few years, and we needed to make some updates for our use case. Pull requests welcome - though we might be slow on responding to reported issues.
 
 ## Live Demo
 
