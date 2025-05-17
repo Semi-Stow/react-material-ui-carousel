@@ -1,12 +1,11 @@
 {
     "name": "@outpost-us/react-material-ui-carousel",
-    "version": "3.4.4",
+    "version": "3.4.5",
     "license": "MIT",
     "description": "A Generic, extendible Carousel UI component for React using Material UI",
-    "homepage": "https://learus.github.io/react-material-ui-carousel",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Learus/react-material-ui-carousel"
+        "url": "https://github.com/semi-stow/react-material-ui-carousel"
     },
     "keywords": [
         "react",
