@@ -14,7 +14,6 @@ import React, { useEffect, useState } from 'react';
 
 export const Carousel = (props: CarouselProps) =>
 {
-
     const [state, setState] = useState({
         active: 0,
         prevActive: 0,

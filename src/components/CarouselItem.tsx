@@ -5,7 +5,7 @@ import
     MotionProps,
     PanInfo
 } from 'framer-motion';
-import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 import { StyledItem } from './Styled';
 
 export interface CarouselItemProps
@@ -48,28 +48,27 @@ export const CarouselItem = ({ animation, next, prev, swipe, state, index, maxIn
         dragConstraints: { left: 0, right: 0 }
     }
 
-    const divRef = useRef<any>(null);
+    const divRef = useRef<HTMLDivElement>(null);
+    console.log('carousel item rendering')
 
-    const checkAndSetHeight = useCallback(() => {
-        if (index !== state.active) return;
+    // Set up ResizeObserver to monitor height changes
+    useEffect(() => {
         if (!divRef.current) return;
 
-        if (divRef.current.offsetHeight === 0)
-        {
-            setTimeout(() => checkAndSetHeight(), 100);
-        }
-        else
-        {
-            setHeight(divRef.current.offsetHeight);
-        }
-    }, [setHeight, state.active, index, divRef])
+        const observer = new ResizeObserver((entries) => {
+            console.log('entries', entries);
+            const contentHeight = entries[0].contentRect.height;
+            if (contentHeight > 0) {
+                setHeight(contentHeight);
+            }
+        });
 
-    // Set height on every child change
-    useEffect(() =>
-    {
-        checkAndSetHeight();
-            
-    }, [checkAndSetHeight])
+        observer.observe(divRef.current);
+
+        return () => {
+            observer.disconnect();
+        };
+    }, [setHeight]);
 
     const variants = {
         leftwardExit: {
